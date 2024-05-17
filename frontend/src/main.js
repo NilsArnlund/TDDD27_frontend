@@ -8,7 +8,7 @@ import store from './store';
 const app = createApp(App);
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://localhost:5000/';  // FastAPI backend
+axios.defaults.baseURL = 'https://tddd27-backend-3.onrender.com/';  // FastAPI backend
 
 
 axios.interceptors.response.use(undefined, function (error) {
