@@ -148,7 +148,7 @@ export default {
   methods: {
     ...mapActions(['viewMe', 'getGameStates', 'getGameStatesEndOfRound', 'profilePictureUser' ]),
     async getUserProfilePic(username) {
-        const profilePictureData = await thisfws.profilePictureUser(username);
+        const profilePictureData = await this.ws.profilePictureUser(username);
         this.profilePictures[username] = profilePictureData;
     },
     // Method that zooms the image on mouse scroll
