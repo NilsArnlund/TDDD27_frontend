@@ -140,6 +140,7 @@ export default {
                 console.log(this.profilePictures[username])
                 // Fetch profile picture if not already fetched
                 if (!this.profilePictures[username]) {
+                    console.log("I am in IF GET MY PIC!")
                     await this.getUserProfilePic(username);
                 }
             }            
