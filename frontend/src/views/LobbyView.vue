@@ -148,7 +148,7 @@ export default {
   methods: {
     ...mapActions(['viewMe', 'getGameStates', 'getGameStatesEndOfRound', 'profilePictureUser' ]),
     async getUserProfilePic(username) {
-        const profilePictureData = await this.profilePictureUser(username);
+        const profilePictureData = await thisfws.profilePictureUser(username);
         this.profilePictures[username] = profilePictureData;
     },
     // Method that zooms the image on mouse scroll
@@ -289,7 +289,7 @@ export default {
     },
     // Method that connects the websocket to the room with this users clientID
     onRoomFormSubmit(roomID) {
-      const wsURL = `ws://tddd27-backend-3.onrender.com/ws/${roomID}/${this.clientID}`;
+      const wsURL = `wss://tddd27-backend-3.onrender.com/ws/${roomID}/${this.clientID}`;
       this.ws = new WebSocket(wsURL);
       this.ws.onmessage = this.processMessage;
     },
