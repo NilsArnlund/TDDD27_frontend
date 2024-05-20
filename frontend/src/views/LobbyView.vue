@@ -289,7 +289,7 @@ export default {
     },
     // Method that connects the websocket to the room with this users clientID
     onRoomFormSubmit(roomID) {
-      const wsURL = `ws://localhost:5000/ws/${roomID}/${this.clientID}`;
+      const wsURL = `ws://tddd27-backend-3.onrender.com/ws/${roomID}/${this.clientID}`;
       this.ws = new WebSocket(wsURL);
       this.ws.onmessage = this.processMessage;
     },
