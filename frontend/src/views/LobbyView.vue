@@ -136,6 +136,8 @@ export default {
                     this.isRoomLeader = userData.is_room_leader;
                 }
                 const username = userData.username;
+                console.log(username)
+                console.log(this.profilePictures[username])
                 // Fetch profile picture if not already fetched
                 if (!this.profilePictures[username]) {
                     await this.getUserProfilePic(username);
