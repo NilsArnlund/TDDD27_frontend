@@ -230,7 +230,7 @@ export default {
         case "game_over":
           this.showTimer = false;
           this.usersObject = await this.getGameStates(this.roomID);
-          this.gameOverObject = this.usersObject;
+          this.gameOverObject = await this.getGameStatesEndOfRound(this.roomID);
           this.selectedCountry = null;
           break;
         // Show round starting timer with the time gotten from server
