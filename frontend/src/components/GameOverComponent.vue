@@ -1,8 +1,6 @@
 <template>
   <div class="text-center text-white">
-    <figure>
-      <img src="../assets/logos/logo_transparent.png" />
-    </figure>
+    <p class="text-4xl">Game Over!</p>
     <p style="font-size: large;">Correct guess was: <span style="color: green; font-weight: bold;">{{ currentCorrect }}</span></p>
     <table class="table w-1/2 mx-auto">
       <thead>
