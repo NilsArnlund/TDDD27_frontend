@@ -8,7 +8,7 @@
           <th></th>
           <th>User</th>
           <th>Score</th>
-          <th>Country</th>
+          <th>Guess</th>
         </tr>
       </thead>
       <tbody>
