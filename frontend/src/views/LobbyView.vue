@@ -13,7 +13,7 @@
         </div>
 
         <!-- Middle column -->
-        <div class="w-3/5 h-full flex flex-col">
+        <div class="w-3/5 flex flex-col">
           <div class="outline outline-warning outline-1 h-1/2 p-1">
             <!-- Show RoundOver/GameStart/GameOverComponent else Show the round Image in the upper half of middle column-->
             <div v-if="isRoundOverObjectNotEmpty">
@@ -39,12 +39,10 @@
             <div class="image-container" @wheel="zoomImage">
               <img :src="pictureUrl" alt="Random Picture" v-show="!isRoundOverObjectNotEmpty && gameStarted && !gameOverObject" class="zoomable-image"/>
             </div>
-            
-
           </div>
 
           <!-- Map component in lower half of middle col -->
-          <div class="outline outline-warning outline-1 h-1/2 p-1">
+          <div class="outline outline-warning outline-1 h-1/2 p-1 z-5">
             <div class="h-full" :class="{ 'map-disabled': !isUserAlive || !gameStarted || timerRoundOver }">
               <MapComponent ref="mapComponent" @country-selected="handleCountrySelected" />
             </div>
@@ -136,11 +134,8 @@ export default {
                     this.isRoomLeader = userData.is_room_leader;
                 }
                 const username = userData.username;
-                console.log(username)
-                console.log(this.profilePictures[username])
                 // Fetch profile picture if not already fetched
                 if (!this.profilePictures[username]) {
-                    console.log("I am in IF GET MY PIC!")
                     await this.getUserProfilePic(username);
                 }
             }            
@@ -292,7 +287,7 @@ export default {
     },
     // Method that connects the websocket to the room with this users clientID
     onRoomFormSubmit(roomID) {
-      const wsURL = `wss://tddd27-backend-3.onrender.com/ws/${roomID}/${this.clientID}`;
+      const wsURL = `ws://localhost:5000/ws/${roomID}/${this.clientID}`;
       this.ws = new WebSocket(wsURL);
       this.ws.onmessage = this.processMessage;
     },
@@ -375,6 +370,6 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1; /* Ensure the buttons are displayed on top of other content */
+    z-index: 1;
   }
 </style>
