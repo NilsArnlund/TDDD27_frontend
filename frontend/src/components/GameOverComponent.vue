@@ -8,6 +8,7 @@
           <th></th>
           <th>User</th>
           <th>Score</th>
+          <th>Country</th>
         </tr>
       </thead>
       <tbody>
@@ -23,6 +24,7 @@
           </td>
           <td>{{ item.username }}</td>
           <td>{{ item.score }}</td>
+          <td>{{  getCountry(item.current_guess) }}</td>
         </tr>
       </tbody>
     </table>
@@ -31,6 +33,7 @@
 
   
   <script>
+  import countryCodeData from '../assets/countryCodes.json';
   
   export default {
     name: 'GameOverComponent',
@@ -55,8 +58,12 @@
     methods: {
       // Formats loaded picture to correct format
       getProfilePicture(username) {
-            return 'data:image/jpeg;base64,' + (this.profilePictures[username] || '');
-        },
+          return 'data:image/jpeg;base64,' + (this.profilePictures[username] || '');
+      },
+      // Convert country code to country name
+      getCountry(countryCode) {
+        return countryCodeData[countryCode]
+      }
     },
   };
   </script>
